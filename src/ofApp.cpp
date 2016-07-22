@@ -49,9 +49,8 @@ void ofApp::draw(){
 		//cout << "orang tracked: " << haarFinder.blobs.size() << " orang";
 		for (int i = 0; i < haarFinder.blobs.size(); i++) {
 			ofRectangle faces = haarFinder.blobs[i].boundingRect;
-			//ofRect(faces.x, faces.y, faces.width, faces.height);
-			
 
+			//ofRect(faces.x, faces.y, faces.width, faces.height);
 			//cout << " minX: " << faces.getMinX();
 			//cout << " maxX: " << faces.getMaxX();
 
