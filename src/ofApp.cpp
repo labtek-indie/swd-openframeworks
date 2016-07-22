@@ -16,7 +16,7 @@ void ofApp::setup(){
 	darth.setAnchorPercent(0.5, 0.5);
 
 	ofEnableAlphaBlending();
-	ofSetFrameRate(60);
+	//ofSetFrameRate(60);
 
 }
 
