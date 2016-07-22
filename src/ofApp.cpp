@@ -9,8 +9,8 @@ void ofApp::setup(){
 	greyImage.allocate(video.getWidth(), video.getHeight());
 	greyImageSmall.allocate(120, 90);
 
-	haarFinder.setup("haarcascade_frontalface_alt2.xml");
-	//haarFinder.setup("haarcascade_frontalface_default.xml");
+	//haarFinder.setup("haarcascade_frontalface_alt2.xml");
+	haarFinder.setup("haarcascade_frontalface_default.xml");
 
 	darth.loadImage("Darth Vader.png");
 	darth.setAnchorPercent(0.5, 0.5);
@@ -18,7 +18,7 @@ void ofApp::setup(){
 	trooper.setAnchorPercent(0.5,0.5);
 
 	ofEnableAlphaBlending();
-	//ofSetFrameRate(60);
+	ofSetFrameRate(30);
 
 }
 
@@ -50,10 +50,10 @@ void ofApp::draw(){
 		for (int i = 0; i < haarFinder.blobs.size(); i++) {
 			ofRectangle faces = haarFinder.blobs[i].boundingRect;
 					ofRect(faces.x, faces.y, faces.width, faces.height);
-			int widthScale = faces.width * 1.4;
+			int widthScale = faces.width * 1.5;
 
-			cout << " minX: " << faces.getMinX();
-			cout << " maxX: " << faces.getMaxX();
+			/*cout << " minX: " << faces.getMinX();
+			cout << " maxX: " << faces.getMaxX();*/
 
 			if (faces.getMinX() < 40) {
 				darth.draw(haarFinder.blobs[i].centroid, widthScale, widthScale * darth.getHeight() / darth.getWidth());
