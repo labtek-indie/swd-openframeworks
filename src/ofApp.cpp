@@ -12,9 +12,9 @@ void ofApp::setup(){
 	haarFinder.setup("haarcascade_frontalface_alt2.xml");
 	//haarFinder.setup("haarcascade_frontalface_default.xml");
 
-	darth.loadImage("Darth Vader.png");
+	darth.load("Darth Vader.png");
 	darth.setAnchorPercent(0.5, 0.5);
-	trooper.loadImage("Stormtrooper.png");
+	trooper.load	("Stormtrooper.png");
 	trooper.setAnchorPercent(0.5,0.5);
 
 	ofEnableAlphaBlending();
