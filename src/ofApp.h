@@ -29,6 +29,6 @@ class ofApp : public ofBaseApp{
 		ofxCvGrayscaleImage 	greyImageSmall;
 		ofxCvHaarFinder         haarFinder;
 
-		ofImage                 darth;
+		ofImage                 darth,trooper;
 
 };
