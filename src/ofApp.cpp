@@ -7,10 +7,10 @@ void ofApp::setup(){
 
 	colorImg.allocate(video.getWidth(), video.getHeight());
 	greyImage.allocate(video.getWidth(), video.getHeight());
-	greyImageSmall.allocate(120, 90);
+	greyImageSmall.allocate(300, 225);
 
-	//haarFinder.setup("haarcascade_frontalface_alt2.xml");
-	haarFinder.setup("haarcascade_frontalface_default.xml");
+	haarFinder.setup("haarcascade_frontalface_alt2.xml");
+	//haarFinder.setup("haarcascade_frontalface_default.xml");
 
 	darth.loadImage("Darth Vader.png");
 	darth.setAnchorPercent(0.5, 0.5);
@@ -49,17 +49,19 @@ void ofApp::draw(){
 		//cout << "orang tracked: " << haarFinder.blobs.size() << " orang";
 		for (int i = 0; i < haarFinder.blobs.size(); i++) {
 			ofRectangle faces = haarFinder.blobs[i].boundingRect;
-					ofRect(faces.x, faces.y, faces.width, faces.height);
-			int widthScale = faces.width * 1.5;
+			//ofRect(faces.x, faces.y, faces.width, faces.height);
+			
 
-			/*cout << " minX: " << faces.getMinX();
-			cout << " maxX: " << faces.getMaxX();*/
+			//cout << " minX: " << faces.getMinX();
+			//cout << " maxX: " << faces.getMaxX();
 
-			if (faces.getMinX() < 40) {
+			if (faces.getMinX() < (300/2 - greyImageSmall.width*0.1)) {
+				int widthScale = faces.width * 1.5;
 				darth.draw(haarFinder.blobs[i].centroid, widthScale, widthScale * darth.getHeight() / darth.getWidth());
 			}
 			else
 			{
+				int widthScale = faces.width * 1.3;
 				trooper.draw(haarFinder.blobs[i].centroid, widthScale, widthScale * darth.getHeight() / darth.getWidth());
 			}
 		}
