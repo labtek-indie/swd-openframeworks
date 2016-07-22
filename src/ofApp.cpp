@@ -12,10 +12,11 @@ void ofApp::setup(){
 	//haarFinder.setup("haarcascade_frontalface_alt2.xml");
 	haarFinder.setup("haarcascade_frontalface_default.xml");
 
-	img.loadImage("Darth.png");
-	img.setAnchorPercent(0.5, 0.5);
+	darth.loadImage("Darth.png");
+	darth.setAnchorPercent(0.5, 0.5);
 
 	ofEnableAlphaBlending();
+	ofSetFrameRate(60);
 
 }
 
@@ -45,10 +46,10 @@ void ofApp::draw(){
 		ofNoFill();
 		//cout << "orang tracked: " << haarFinder.blobs.size() << " orang";
 		for (int i = 0; i < haarFinder.blobs.size(); i++) {
-			ofRectangle cur = haarFinder.blobs[i].boundingRect;
+			ofRectangle faces = haarFinder.blobs[i].boundingRect;
 			//		ofRect(cur.x, cur.y, cur.width, cur.height);
-			int widthScale = cur.width * 1.4;
-			img.draw(haarFinder.blobs[i].centroid, widthScale, widthScale * img.getHeight() / img.getWidth());
+			int widthScale = faces.width * 1.4;
+			darth.draw(haarFinder.blobs[i].centroid, widthScale, widthScale * darth.getHeight() / darth.getWidth());
 		}
 	glPopMatrix();
 
